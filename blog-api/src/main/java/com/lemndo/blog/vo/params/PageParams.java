@@ -8,4 +8,8 @@ public class PageParams {
     private int page = 1;
 
     private int paSize = 10;
+
+    private Long categoryId;
+
+    private Long tagId;
 }
