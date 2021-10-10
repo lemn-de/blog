@@ -22,4 +22,6 @@ public interface ICategoryService extends IService<Category> {
     Result findAll();
 
     Result findAllDetail();
+
+    Result categorieDetailById(Long id);
 }

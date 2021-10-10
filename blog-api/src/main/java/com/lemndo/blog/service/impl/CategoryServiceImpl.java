@@ -55,6 +55,12 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         return Result.success(copyList(categories));
     }
 
+    @Override
+    public Result categorieDetailById(Long id) {
+        Category category = categoryMapper.selectById(id);
+        return Result.success(copy(category));
+    }
+
     public CategoryVo copy(Category category){
         CategoryVo categoryVo = new CategoryVo();
         BeanUtils.copyProperties(category,categoryVo);
