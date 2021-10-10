@@ -1,6 +1,6 @@
 package com.lemndo.blog.admin.mapper;
 
-import com.lemndo.blog.admin.entity.Admin;
+import com.lemndo.blog.admin.entity.Permission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
  * @author lemndo
  * @since 2021-10-10
  */
-public interface AdminMapper extends BaseMapper<Admin> {
+public interface PermissionMapper extends BaseMapper<Permission> {
 
 }
