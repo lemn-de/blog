@@ -25,4 +25,6 @@ public interface ITagService extends IService<Tag> {
      * @return
      */
     Result findAll();
+
+    Result findAllDetail();
 }
