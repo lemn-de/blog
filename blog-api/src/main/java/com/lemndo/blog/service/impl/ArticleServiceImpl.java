@@ -97,6 +97,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
                 queryWrapper.in(Article::getId, articleIdList);
             }
         }
+        //文章归档根据年月查询
+        if (pageParams.getYear() != null && pageParams.getMonth() != null) {
+            //select * from ms_article where create_date LIKE "2021-10%"
+            queryWrapper.like(Article::getCreateDate, pageParams.getYear() + "-" + pageParams.getMonth() + "%");
+        }
         queryWrapper.orderByDesc(Article::getWeight,Article::getCreateDate);
         Page<Article> articlePage = articleMapper.selectPage(page, queryWrapper);
         List<Article> records = articlePage.getRecords();

@@ -1,8 +1,10 @@
 package com.lemndo.blog.mapper;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lemndo.blog.dao.dos.Archives;
 import com.lemndo.blog.entity.Article;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,4 +21,5 @@ import java.util.List;
 public interface ArticleMapper extends BaseMapper<Article> {
 
     List<Archives> listArchives();
+
 }

@@ -7,6 +7,8 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -71,5 +73,14 @@ public class Article implements Serializable {
      */
     private Long categoryId;
 
+    private String getYearOfDate() {
+        DateFormat year = new SimpleDateFormat("yyyy");
+        return year.format(this.createDate);
+    }
+
+    private String getMonthOfDate() {
+        DateFormat month = new SimpleDateFormat("MM");
+        return month.format(this.createDate);
+    }
 
 }
