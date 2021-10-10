@@ -27,4 +27,6 @@ public interface ITagService extends IService<Tag> {
     Result findAll();
 
     Result findAllDetail();
+
+    Result findDetailById(Long id);
 }
