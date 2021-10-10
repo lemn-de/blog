@@ -22,4 +22,10 @@ public interface IPermissionService extends IService<Permission> {
      * @return
      */
     Result listPermission(PageParam pageParam);
+
+    Result addPerssion(Permission permission);
+
+    Result updatePerssion(Permission permission);
+
+    Result deletePerssion(Long id);
 }

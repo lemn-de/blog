@@ -32,12 +32,30 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
         Page<Permission> page = new Page<>(pageParam.getCurrentPage(), pageParam.getPageSize());
         LambdaQueryWrapper<Permission> queryWrapper = new LambdaQueryWrapper<>();
         if (StringUtils.isNotBlank(pageParam.getQueryString())) {
-            queryWrapper.eq(Permission::getName, pageParam.getQueryString());
+            queryWrapper.like(Permission::getName, "%" + pageParam.getQueryString()+"%");
         }
         Page<Permission> permissionPage = permissionMapper.selectPage(page, queryWrapper);
         PageResult<Permission> pageResult = new PageResult<>();
         pageResult.setList(permissionPage.getRecords());
         pageResult.setTotal(permissionPage.getTotal());
         return Result.success(pageResult);
+    }
+
+    @Override
+    public Result addPerssion(Permission permission) {
+        this.permissionMapper.insert(permission);
+        return Result.success(null);
+    }
+
+    @Override
+    public Result updatePerssion(Permission permission) {
+        this.permissionMapper.updateById(permission);
+        return Result.success(null);
+    }
+
+    @Override
+    public Result deletePerssion(Long id) {
+        this.permissionMapper.deleteById(id);
+        return Result.success(null);
     }
 }

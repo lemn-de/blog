@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
  * @author lemndo
  * @since 2021-10-10
  */
+@Repository
 public interface PermissionMapper extends BaseMapper<Permission> {
 
 }
