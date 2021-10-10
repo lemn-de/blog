@@ -3,6 +3,7 @@ package com.lemndo.blog.admin.controller;
 
 import com.lemndo.blog.admin.entity.Permission;
 import com.lemndo.blog.admin.model.params.PageParam;
+import com.lemndo.blog.admin.service.IArticleService;
 import com.lemndo.blog.admin.service.IPermissionService;
 import com.lemndo.blog.admin.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class AdminController {
 
     @Autowired
     private IPermissionService permissionService;
+    @Autowired
+    private IArticleService articleService;
 
     @PostMapping("permission/permissionList")
     public Result listPermission(@RequestBody PageParam pageParam){
@@ -44,5 +47,10 @@ public class AdminController {
     @GetMapping("permission/delete/{id}")
     public Result delete(@PathVariable("id") Long id){
         return permissionService.deletePerssion(id);
+    }
+
+    @PostMapping("article/articleList")
+    public Result listArtilce(@RequestBody PageParam pageParam) {
+        return articleService.listArtilce(pageParam);
     }
 }
