@@ -2,6 +2,9 @@ package com.lemndo.blog.admin.service;
 
 import com.lemndo.blog.admin.entity.Admin;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lemndo.blog.admin.entity.Permission;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,4 +17,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IAdminService extends IService<Admin> {
 
     Admin findAdminByUserName(String username);
+
+    List<Permission> findPermissionByAdminId(Long adminId);
 }

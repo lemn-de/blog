@@ -2,11 +2,14 @@ package com.lemndo.blog.admin.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.lemndo.blog.admin.entity.Admin;
+import com.lemndo.blog.admin.entity.Permission;
 import com.lemndo.blog.admin.mapper.AdminMapper;
 import com.lemndo.blog.admin.service.IAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -29,5 +32,10 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         queryWrapper.last("limit 1");
         Admin admin = adminMapper.selectOne(queryWrapper);
         return admin;
+    }
+
+    @Override
+    public List<Permission> findPermissionByAdminId(Long adminId) {
+        return adminMapper.findPermissionByAdminId(adminId);
     }
 }

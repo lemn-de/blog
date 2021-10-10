@@ -1,9 +1,11 @@
 package com.lemndo.blog.admin.service;
 
+import com.lemndo.blog.admin.entity.Admin;
+import com.lemndo.blog.admin.entity.Permission;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +21,28 @@ public class AuthService {
         //权限认证
         String requestURI = request.getRequestURI();
         Object principal = authentication.getPrincipal();
-
-        return true;
+        if (principal == null || "anonymousUser".equals(principal)) {
+            //未登录
+            return false;
+        }
+        UserDetails userDetails = (UserDetails) principal;
+        String username = userDetails.getUsername();
+        Admin admin = adminService.findAdminByUserName(username);
+        if (admin == null) {
+            return false;
+        }
+        if (admin.getId() == 1) {
+            //超级管理员
+            return true;
+        }
+        Long id = admin.getId();
+        List<Permission> permissionList = this.adminService.findPermissionByAdminId(id);
+        requestURI = StringUtils.split(requestURI, "?")[0];
+        for (Permission permission : permissionList) {
+            if (requestURI.equals(permission.getPath())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
