@@ -80,6 +80,11 @@ public class ArticleController {
         return articleService.findArticleById(articleId);
     }
 
+    @PostMapping("write/{id}")
+    public Result writeArticleById(@PathVariable("id") Long articleId) {
+        return articleService.findArticleById(articleId);
+    }
+
     @PostMapping("publish")
     public Result publish(@RequestBody ArticleParam articleParam) {
         return articleService.publish(articleParam);

@@ -27,7 +27,7 @@
 
             </div>
             <el-button
-              v-if="this.article.author.id == this.$store.state.id"
+              v-if="this.article.authorId == this.$store.state.id"
               @click="editArticle()"
               style="position: absolute;left: 60%;"
               size="mini"
@@ -113,6 +113,7 @@
   import MarkdownEditor from '@/components/markdown/MarkdownEditor'
   import CommmentItem from '@/components/comment/CommentItem'
   import {viewArticle} from '@/api/article'
+  import {writeArticle} from '@/api/article'
   import {getCommentsByArticle, publishComment} from '@/api/comment'
 
   import default_avatar from '@/assets/img/default_avatar.png'
@@ -169,7 +170,15 @@
         this.$router.push({path: `/${type}/${id}`})
       },
       editArticle() {
-        this.$router.push({path: `/write/${this.article.id}`})
+        let that = this
+        that.$router.push({path: `/write/${that.article.id}`})
+        writeArticle(that.$route.params.id).then(data => {
+          console.log("开始编辑======")
+        }).catch(error => {
+          if (error != 'error') {
+            that.$message({type: 'error', message: '编辑失败', showClose: true})
+          }
+        })
       },
       getArticle() {
         let that = this

@@ -5,6 +5,8 @@ import lombok.Data;
 @Data
 public class PageParams {
 
+    private Long articleId;
+
     private int page = 1;
 
     private int paSize = 10;

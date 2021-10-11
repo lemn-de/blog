@@ -39,6 +39,13 @@ export function viewArticle(id) {
   })
 }
 
+export function writeArticle(id) {
+  return request({
+    url: `/articles/write/${id}`,
+    method: 'post'
+  })
+}
+
 export function getArticlesByCategory(id) {
   return request({
     url: `/articles/category/${id}`,
