@@ -47,10 +47,19 @@
                 </el-table-column>
                 <el-table-column label="标题" align="center" prop="title">
                 </el-table-column>
-                <el-table-column label="作者" align="center" prop="authorId"></el-table-column>
+                <el-table-column label="摘要" align="center" prop="summary">
+                </el-table-column>
                 <el-table-column label="权重" align="center" prop="weight">
                 </el-table-column>
+                <el-table-column label="作者id" align="center" prop="authorId">
+                </el-table-column>
+                <el-table-column label="内容id" align="center" prop="bodyId">
+                </el-table-column>
+                <el-table-column label="分类id" align="center" prop="categoryId">
+                </el-table-column>
                 <el-table-column label="创建日期" align="center" prop="createDate">
+                </el-table-column>
+                <el-table-column label="浏览数量" align="center" prop="viewCounts">
                 </el-table-column>
                 <el-table-column label="操作" align="center">
                     <template slot-scope="scope">
@@ -108,22 +117,57 @@
                     <el-form ref="dataAddForm" :model="formData" :rules="rules" label-position="right" label-width="100px">
                         <el-row>
                             <el-col >
-                                <el-form-item label="名称" prop="name">
-                                    <el-input  v-model="formData.name"/>
+                                <el-form-item label="标题" prop="title">
+                                    <el-input  v-model="formData.title"/>
                                 </el-form-item>
                             </el-col>
                         </el-row>
                         <el-row>
                             <el-col >
-                                <el-form-item label="路径" prop="path">
-                                    <el-input  v-model="formData.path"/>
+                                <el-form-item label="摘要" prop="summary">
+                                    <el-input  v-model="formData.summary"/>
                                 </el-form-item>
                             </el-col>
                         </el-row>
                         <el-row>
                             <el-col >
-                                <el-form-item label="描述" prop="description">
-                                    <el-input  v-model="formData.description"/>
+                                <el-form-item label="权重" prop="weight">
+                                    <el-input  v-model="formData.weight"/>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col >
+                                <el-form-item label="作者id" prop="authorId">
+                                    <el-input  v-model="formData.authorId"/>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col >
+                                <el-form-item label="内容id" prop="bodyId">
+                                    <el-input  v-model="formData.bodyId"/>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col >
+                                <el-form-item label="分类id" prop="categoryId">
+                                    <el-input  v-model="formData.categoryId"/>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col >
+                                <el-form-item label="创建日期" prop="createDate">
+                                    <el-input  v-model="formData.createDate"/>
+                                </el-form-item>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <el-col >
+                                <el-form-item label="浏览数量" prop="viewCounts">
+                                    <el-input  v-model="formData.viewCounts"/>
                                 </el-form-item>
                             </el-col>
                         </el-row>

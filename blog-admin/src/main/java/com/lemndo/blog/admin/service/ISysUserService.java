@@ -18,4 +18,6 @@ public interface ISysUserService extends IService<SysUser> {
     Result listUser(UserParam userParam);
 
     Result deleteUser(Long id);
+
+    Result updateUser(SysUser sysUser);
 }

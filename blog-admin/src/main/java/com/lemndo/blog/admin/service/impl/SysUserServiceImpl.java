@@ -49,4 +49,10 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         this.userMapper.deleteById(id);
         return Result.success(id);
     }
+
+    @Override
+    public Result updateUser(SysUser sysUser) {
+        this.userMapper.updateById(sysUser);
+        return Result.success(sysUser);
+    }
 }

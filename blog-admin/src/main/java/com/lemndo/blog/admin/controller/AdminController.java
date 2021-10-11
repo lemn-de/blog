@@ -2,6 +2,7 @@ package com.lemndo.blog.admin.controller;
 
 
 import com.lemndo.blog.admin.entity.Permission;
+import com.lemndo.blog.admin.entity.SysUser;
 import com.lemndo.blog.admin.model.params.ArticleParam;
 import com.lemndo.blog.admin.model.params.PageParam;
 import com.lemndo.blog.admin.model.params.UserParam;
@@ -67,6 +68,11 @@ public class AdminController {
     @PostMapping("user/userList")
     public Result listUser(@RequestBody UserParam userParam){
         return userService.listUser(userParam);
+    }
+
+    @PostMapping("user/update")
+    public Result updateUser(@RequestBody SysUser sysUser){
+        return userService.updateUser(sysUser);
     }
 
     @GetMapping("user/delete/{id}")

@@ -44,7 +44,7 @@
   }
 
   .me-login-design-color {
-    color: #5FB878 !important;
+    color: #ff55ff !important;
   }
 
 </style>

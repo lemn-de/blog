@@ -72,10 +72,10 @@
       },
       categoryTagTitle (){
         if(this.currentActiveName == 'category'){
-          return '文章分类 - 码神之路'
+          return '文章分类 - 木本'
         }
         console.info('dddd')
-        return '标签 - 码神之路'
+        return '标签 - 木本'
       }
     },
     methods: {

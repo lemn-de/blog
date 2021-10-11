@@ -9,7 +9,7 @@
       </el-col>
 
       <el-col v-if="!simple" :span="16">
-        <el-menu :router=true menu-trigger="click" active-text-color="#5FB878" :default-active="activeIndex"
+        <el-menu :router=true menu-trigger="click" active-text-color="#b839b2" :default-active="activeIndex"
                  mode="horizontal">
           <el-menu-item index="/">首页</el-menu-item>
           <el-menu-item index="/category/all">文章分类</el-menu-item>
@@ -28,7 +28,7 @@
       </template>
 
       <el-col :span="4">
-        <el-menu :router=true menu-trigger="click" mode="horizontal" active-text-color="#5FB878">
+        <el-menu :router=true menu-trigger="click" mode="horizontal" active-text-color="#17b814">
 
           <template v-if="!user.login">
             <el-menu-item index="/login">
@@ -120,6 +120,6 @@
     border: 1px solid #ddd;
     border-radius: 50%;
     vertical-align: middle;
-    background-color: #5fb878;
+    background-color: #ff55ff;
   }
 </style>

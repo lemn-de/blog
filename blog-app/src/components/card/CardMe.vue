@@ -1,27 +1,32 @@
+
 <template>
   <el-card>
-    <h1 class="me-author-name">码神之路</h1>
+    <h1 class="me-author-name">木之本</h1>
     <div class="me-author-description">
-      <span><i class="el-icon-location-outline"></i> &nbsp;山西&太原</span>
-      <span><i class="me-icon-job"></i> &nbsp;java技术专家</span>
+      <span><i class="me-author-description"> &nbsp;你所热爱的，就是你的生活！</i></span>
     </div>
     <div class="me-author-tool">
-      <i @click="showTool(qq)" :title="qq.title" class="iconfont icon-qq"></i>
-      <i @click="showTool(bilibili)" :title="bilibili.title" class="iconfont icon-bilibili-fill"></i>
+      <i @click="showTool(qq)" :title="qq.title" class="iconfont">&#xe882;</i>
+      <i @click="showTool(github)" :title="github.title" class="iconfont">&#xe885;</i>
+      <i @click="showTool(bilibili)" :title="bilibili.title" class="iconfont">&#xe646;</i>
     </div>
   </el-card>
 
 </template>
-
+</style>
 <script>
   export default {
     name: 'CardMe',
     data() {
       return {
-        qq: {title: 'QQ', message: '723663826'},
+        qq: {title: 'QQ', message: '1830249116'},
+        github: {
+          title: 'Github',
+          message: '<a target="_blank" href="https://github.com/lemn-de">https://github.com/lemn-de</a>'
+        },
         bilibili: {
           title: '哔哩哔哩',
-          message: '<a target="_blank" href="https://space.bilibili.com/473844125">https://space.bilibili.com/473844125</a>'
+          message: '<a target="_blank" href="https://space.bilibili.com/61786491">https://space.bilibili.com/61786491</a>'
         }
       }
     },
@@ -37,6 +42,8 @@
     }
   }
 </script>
+
+
 
 <style scoped>
   .me-author-name {

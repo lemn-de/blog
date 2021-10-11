@@ -41,9 +41,10 @@
     font-weight: 600;
   }
 
+  /* 查看全部 */
   .me-tag-more {
     font-size: 14px;
-    color: #78b6f7;
+    color: #55aaff;
   }
 
   .me-tag-list {
@@ -54,7 +55,7 @@
     display: inline-block;
     padding: 4px;
     font-size: 14px;
-    color: #5FB878;
+    color: #ff55ff;
   }
 
   .me-tag-item a:hover {
