@@ -33,7 +33,9 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         Page<SysUser> page = new Page<>(userParam.getCurrentPage(), userParam.getPageSize());
         LambdaQueryWrapper<SysUser> queryWrapper = new LambdaQueryWrapper<>();
         if (StringUtils.isNotBlank(userParam.getQueryString())) {
-            queryWrapper.like(SysUser::getAccount, "%" + userParam.getQueryString()+"%");
+            queryWrapper.and(wrapper -> wrapper.like(SysUser::getAccount, "%" + userParam.getQueryString()+"%"))
+                    .or()
+                    .like(SysUser::getNickname,"%" + userParam.getQueryString()+"%");
         }
         Page<SysUser> userPage= userMapper.selectPage(page, queryWrapper);
         PageResult<SysUser> pageResult = new PageResult<>();
