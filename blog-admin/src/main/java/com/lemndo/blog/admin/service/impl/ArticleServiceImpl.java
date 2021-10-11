@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lemndo.blog.admin.entity.Article;
 import com.lemndo.blog.admin.entity.Permission;
 import com.lemndo.blog.admin.mapper.ArticleMapper;
+import com.lemndo.blog.admin.model.params.ArticleParam;
 import com.lemndo.blog.admin.model.params.PageParam;
 import com.lemndo.blog.admin.service.IArticleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -29,16 +30,22 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     private ArticleMapper articleMapper;
 
     @Override
-    public Result listArtilce(PageParam pageParam) {
-        Page<Article> page = new Page<>(pageParam.getCurrentPage(), pageParam.getPageSize());
+    public Result listArtilce(ArticleParam articleParam) {
+        Page<Article> page = new Page<>(articleParam.getCurrentPage(), articleParam.getPageSize());
         LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
-        if (StringUtils.isNotBlank(pageParam.getQueryString())) {
-            queryWrapper.like(Article::getTitle, "%" + pageParam.getQueryString()+"%");
+        if (StringUtils.isNotBlank(articleParam.getQueryString())) {
+            queryWrapper.like(Article::getTitle, "%"+articleParam.getQueryString()+"%");
         }
         Page<Article> articlePage = articleMapper.selectPage(page, queryWrapper);
         PageResult<Article> pageResult = new PageResult<>();
         pageResult.setList(articlePage.getRecords());
         pageResult.setTotal(articlePage.getTotal());
         return Result.success(pageResult);
+    }
+
+    @Override
+    public Result deleteArticle(Long id) {
+        this.articleMapper.deleteById(id);
+        return Result.success(id);
     }
 }

@@ -41,7 +41,8 @@
                 <el-button @click="findSearchPage()" class="dalfBut">查询</el-button>
             </div>
             <el-table size="small" current-row-key="id" :data="dataList" stripe highlight-current-row>
-                <el-table-column  align="center" label="序号" prop="id"></el-table-column>
+                <el-table-column  align="center" label="序号" type="index" :index="handleIndex">
+                </el-table-column>
                 <el-table-column label="id" align="center" prop="id">
                 </el-table-column>
                 <el-table-column label="标题" align="center" prop="title">
@@ -194,6 +195,10 @@
                 tagName: [{ required: true, message: '必填项', trigger: 'blur' }],
             }
 
+        },
+        //序号
+        handleIndex(index) {
+            return this.pagination.pagesize * (this.pagination.currentPage - 1) + index + 1
         },
         //钩子函数，VUE对象初始化完成后自动执行
         created() {

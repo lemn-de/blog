@@ -2,9 +2,12 @@ package com.lemndo.blog.admin.controller;
 
 
 import com.lemndo.blog.admin.entity.Permission;
+import com.lemndo.blog.admin.model.params.ArticleParam;
 import com.lemndo.blog.admin.model.params.PageParam;
+import com.lemndo.blog.admin.model.params.UserParam;
 import com.lemndo.blog.admin.service.IArticleService;
 import com.lemndo.blog.admin.service.IPermissionService;
+import com.lemndo.blog.admin.service.ISysUserService;
 import com.lemndo.blog.admin.vo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +30,8 @@ public class AdminController {
     private IPermissionService permissionService;
     @Autowired
     private IArticleService articleService;
+    @Autowired
+    private ISysUserService userService;
 
     @PostMapping("permission/permissionList")
     public Result listPermission(@RequestBody PageParam pageParam){
@@ -50,7 +55,22 @@ public class AdminController {
     }
 
     @PostMapping("article/articleList")
-    public Result listArtilce(@RequestBody PageParam pageParam) {
-        return articleService.listArtilce(pageParam);
+    public Result listArtilce(@RequestBody ArticleParam articleParam) {
+        return articleService.listArtilce(articleParam);
+    }
+
+    @GetMapping("article/delete/{id}")
+    public Result deleteArticle(@PathVariable("id") Long id){
+        return articleService.deleteArticle(id);
+    }
+
+    @PostMapping("user/userList")
+    public Result listUser(@RequestBody UserParam userParam){
+        return userService.listUser(userParam);
+    }
+
+    @GetMapping("user/delete/{id}")
+    public Result deleteUser(@PathVariable("id") Long id){
+        return userService.deleteUser(id);
     }
 }

@@ -2,6 +2,7 @@ package com.lemndo.blog.admin.service;
 
 import com.lemndo.blog.admin.entity.Article;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.lemndo.blog.admin.model.params.ArticleParam;
 import com.lemndo.blog.admin.model.params.PageParam;
 import com.lemndo.blog.admin.vo.Result;
 
@@ -15,5 +16,7 @@ import com.lemndo.blog.admin.vo.Result;
  */
 public interface IArticleService extends IService<Article> {
 
-    Result listArtilce(PageParam pageParam);
+    Result listArtilce(ArticleParam articleParam);
+
+    Result deleteArticle(Long id);
 }
