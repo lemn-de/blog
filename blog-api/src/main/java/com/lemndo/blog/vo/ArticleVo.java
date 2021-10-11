@@ -26,6 +26,13 @@ public class ArticleVo {
 
     private String author;
 
+    private Long authorId;
+
+    /**
+     * 头像
+     */
+    private String avatar;
+
     private ArticleBodyVo body;
 
     private List<TagVo> tags;

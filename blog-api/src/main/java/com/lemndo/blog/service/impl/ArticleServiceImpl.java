@@ -237,6 +237,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         if (isAuthor) {
             Long authorId = article.getAuthorId();
             articleVo.setAuthor(sysUserService.findUserById(authorId).getNickname());
+            articleVo.setAvatar(sysUserService.findUserById(authorId).getAvatar());
         }
         if (isBody) {
             Long articleBodyId = article.getBodyId();
