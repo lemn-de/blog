@@ -10,17 +10,17 @@
 
 文章标签页：
 
-![image-20211013170045941](README.assets/image-20211013170045941.png)
+![image-20211013170732188](https://gitee.com/lemndo/picture/raw/master/img/image-20211013170732188.png)
 
 文章归档：
 
-![image-20211013170126701](README.assets/image-20211013170126701.png)
+![image-20211013170747264](https://gitee.com/lemndo/picture/raw/master/img/image-20211013170747264.png)
 
 其他实现：图片上传，评论功能，登录注册
 
 包括了一个markdown编辑器
 
-![image-20211013170259980](README.assets/image-20211013170259980.png)
+![image-20211013170759480](https://gitee.com/lemndo/picture/raw/master/img/image-20211013170759480.png)
 
 ## 项目文件说明
 blog-api:项目后端
